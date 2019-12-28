@@ -35,6 +35,11 @@
     .bgBtn {
       margin-top: 20px;
     }
+
+    .striked {
+      color: red;
+      text-decoration: line-through;
+    }
   </style>
 </head>
 
@@ -78,6 +83,7 @@
         let storeInputValue = inputValue.value;
         let listItem = document.createElement('li');
         listItem.innerHTML = storeInputValue;
+        listItem.classList.add('todo__list');
         ulList.append(listItem);
 
         inputValue.value = "";
@@ -102,6 +108,16 @@
       let bgColor = 'rgb(' + random(255) + ', ' + random(255) + ', ' + random(255) + ')';
       document.body.style.backgroundColor = bgColor;
     })
+
+    // challenge 3 - click to strikethrough the list item added
+    let allListItems = document.querySelectorAll('.todo__list');
+    allListItems.forEach(singleList => {
+      singleList.addEventListener('click', () => {
+        // console.log(singleList);
+        singleList.classList.toggle('striked');
+      })
+    })
+
   </script>
 </body>
 
