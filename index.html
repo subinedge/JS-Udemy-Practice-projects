@@ -31,11 +31,15 @@
       height: 100px;
       overflow: scroll;
     } */
+
+    .bgBtn {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <!-- challenge 1 -->
+  <!-- challenge 1 - add list item-->
 
   <ul class="todo">
     <li class="todo__list">cricket</li>
@@ -47,7 +51,10 @@
   <input type="submit" value="Add" class="add">
   <div class="addAlertMessage"></div>
 
+  <hr>
 
+  <!-- challenge 2 - background changer-->
+  <input type="submit" value="Background changer" class="bgBtn">
 
   <script>
 
@@ -84,7 +91,17 @@
       }
     })
 
-    // challenge 1 ends
+    // challenge 2
+
+    function random(number) {
+      return Math.floor(Math.random() * (number + 1));
+    }
+
+    let btn = document.querySelector('.bgBtn');
+    btn.addEventListener('click', () => {
+      let bgColor = 'rgb(' + random(255) + ', ' + random(255) + ', ' + random(255) + ')';
+      document.body.style.backgroundColor = bgColor;
+    })
   </script>
 </body>
 
